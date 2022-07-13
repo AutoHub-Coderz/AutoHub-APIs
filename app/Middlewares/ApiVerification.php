@@ -17,6 +17,9 @@ class ApiVerification implements IMiddleware
 		 * 3. log the access
 		 */
 
+		// echo url(null, null, array());
+		// exit;
+
 		if (empty(input('key'))) {
 			response()->json(array('status' => 0, "message" => "Parameter (key) is required."));
 		}

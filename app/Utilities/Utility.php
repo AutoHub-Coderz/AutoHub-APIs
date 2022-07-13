@@ -93,4 +93,16 @@ class Utility
     {
         return $_SERVER['HTTP_USER_AGENT'];
     }
+
+    public static function removeNonAscii($string)
+    {
+        return  preg_replace('/[\x00-\x1F\x7F\xA0]/u', '', $string);
+        // return preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $string);
+    }
+
+    public static function removeExtraSpaces($string)
+    {
+        return preg_replace('/\s+/', ' ', $string); // removing new line
+        // return  preg_replace('/\h+/', ' ', $string);
+    }
 }
