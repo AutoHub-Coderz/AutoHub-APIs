@@ -2,6 +2,6 @@
 
 use App\Router;
 
-Router::get('/getkey', function () {
+Router::get('/key', function () {
     response()->json(array("token" => str_replace('-', '', \App\Utilities\Token::generate())));
-})->setName('getkey');
+})->setName('key');

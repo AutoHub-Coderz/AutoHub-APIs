@@ -79,4 +79,18 @@ class Utility
     {
         return number_format($number, 2, '.', ',');
     }
+
+    public static function clientIP()
+    {
+        return isset($_SERVER['HTTP_CLIENT_IP'])
+            ? $_SERVER['HTTP_CLIENT_IP']
+            : (isset($_SERVER['HTTP_X_FORWARDED_FOR'])
+                ? $_SERVER['HTTP_X_FORWARDED_FOR']
+                : $_SERVER['REMOTE_ADDR']);
+    }
+
+    public static function clientUserAgent()
+    {
+        return $_SERVER['HTTP_USER_AGENT'];
+    }
 }
