@@ -1,4 +1,6 @@
 <?php
+
+
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 // ini_set("session.cookie_secure", '1');
@@ -9,6 +11,11 @@ require_once '../vendor/autoload.php';
 // require_once '../app/config.php';
 // Load our helpers
 require_once '../app/helpers.php';
+
+if ($_SERVER["HTTPS"] != "on" && env('APP_ENV') == 'production') {
+    header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+    exit();
+}
 
 $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
