@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'b5797dc7e2001a09cb2005cc6ef51dec4ca45d4f',
+        'reference' => '471ca27e3f77abb3c1c62b44f556cb9be11fccb1',
         'name' => 'clrkz/php-mvc-bootstrap',
         'dev' => true,
     ),
@@ -34,7 +34,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'b5797dc7e2001a09cb2005cc6ef51dec4ca45d4f',
+            'reference' => '471ca27e3f77abb3c1c62b44f556cb9be11fccb1',
             'dev_requirement' => false,
         ),
         'dasprid/enum' => array(
@@ -179,6 +179,17 @@
                 0 => '1.26.x-dev',
             ),
             'reference' => '6fd1b9a79f6e3cf65f9e679b23af304cd9e010d4',
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-iconv' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/polyfill-iconv',
+            'aliases' => array(
+                0 => '1.26.x-dev',
+            ),
+            'reference' => '143f1881e655bebca1312722af8068de235ae5dc',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-mbstring' => array(

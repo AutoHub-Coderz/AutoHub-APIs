@@ -24,7 +24,8 @@
     "firebase/php-jwt": "dev-main",
     "fakerphp/faker": "2.x-dev",
     "vlucas/phpdotenv": "5.4.x-dev",
-    "endroid/qr-code": "4.x-dev"
+    "endroid/qr-code": "4.x-dev",
+    "symfony/polyfill-iconv": "1.26.x-dev"
   },
   "config": {
     "platform-check": false
