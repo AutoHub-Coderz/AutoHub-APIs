@@ -12,14 +12,6 @@ require_once '../vendor/autoload.php';
 // Load our helpers
 require_once '../app/helpers.php';
 
-if ($_SERVER["HTTPS"] != "on" && env('APP_ENV') == 'production') {
-    header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
-    exit();
-}
-
-echo $_SERVER["HTTPS"];
-exit;
-
 $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
