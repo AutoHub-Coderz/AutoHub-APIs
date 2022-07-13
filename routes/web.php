@@ -20,14 +20,17 @@ Router::get('/info', function () {
 
 
 Router::get('/mysql', function () {
-    $con = mysqli_connect("localhost", "my_user", "my_password", "my_db");
+    // new mysqli($config['host'], $config['username'], $config['password'], $config['database']);
+
+
+    $mysqli = new mysqli("localhost", "autoph_api", "wefS[rLyuB.{", "autoph_api");
 
     // Check connection
-    if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    if ($mysqli->connect_errno) {
+        echo "Failed to connect to MySQL: " . $mysqli->connect_error;
         exit();
     } else {
-        echo "Connected to MySQL";
+        echo "Connected to MySQL: " . $mysqli->connect_error;
         exit();
     }
-})->setName('mysql');
+})->setName('info');
