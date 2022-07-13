@@ -17,6 +17,9 @@ if ($_SERVER["HTTPS"] != "on" && env('APP_ENV') == 'production') {
     exit();
 }
 
+echo $_SERVER["HTTPS"];
+exit;
+
 $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
