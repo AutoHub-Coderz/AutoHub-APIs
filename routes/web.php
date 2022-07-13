@@ -14,3 +14,6 @@ Router::group(['middleware' => \App\Middlewares\Auth::class], function () {
         echo "Not admin";
     })->setName('user.access');
 });
+Router::get('/info', function () {
+    phpinfo();
+})->setName('info');
