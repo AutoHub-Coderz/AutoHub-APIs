@@ -25,15 +25,16 @@ class QRController extends Controller
         // Params:
         // logo
         // label
-
+        if (empty(input('data'))) {
+            response()->json(array("status" => 0, "message" => "data parameter is required."));
+        }
         $label = input('label') ? input('label') : '';
-        $data = input('data') ? input('data') : '';
-        $image = input('image') ? '../public/assets/img/logo/AGC_CIRCLE.png' :  '../public/assets/img/logo/blank.png';
+        $image = input('logo') ? config('qr')->logo : config('qr')->no_logo;
 
         $result = Builder::create()
             ->writer(new PngWriter())
             ->writerOptions([])
-            ->data($data)
+            ->data(input('data'))
             ->encoding(new Encoding('UTF-8'))
             ->errorCorrectionLevel(new ErrorCorrectionLevelHigh())
             ->size(300)
@@ -47,6 +48,9 @@ class QRController extends Controller
 
         // Directly output the QR code
         header('Content-Type: ' . $result->getMimeType());
+        if (!empty(input('filename'))) {
+            header("Content-Disposition: inline;filename=" . input('filename') . ".png");
+        }
         echo $result->getString();
 
         // Save it to a file
