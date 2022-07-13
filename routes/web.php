@@ -20,17 +20,33 @@ Router::get('/info', function () {
 
 
 Router::get('/mysql', function () {
-    // new mysqli($config['host'], $config['username'], $config['password'], $config['database']);
 
+    if (input('driver') == 'pdo') {
+        $mysqli = new mysqli("localhost", "autoph_api", "wefS[rLyuB.{", "autoph_api");
 
-    $mysqli = new mysqli("localhost", "autoph_api", "wefS[rLyuB.{", "autoph_api");
+        // Check connection
+        if ($mysqli->connect_errno) {
+            echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+            exit();
+        } else {
+            echo "Connected to MySQL: ";
+            var_dump($mysqli);
+            exit();
+        }
+    } else 
+    if (input('driver') == 'mysql') {
+        $servername = "localhost";
+        $username = "autoph_api";
+        $password = "wefS[rLyuB.{";
+        $database = "autoph_api";
 
-    // Check connection
-    if ($mysqli->connect_errno) {
-        echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-        exit();
-    } else {
-        echo "Connected to MySQL: " . $mysqli->connect_error;
-        exit();
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, $database);
+
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        echo "Connected successfully";
     }
 })->setName('info');
