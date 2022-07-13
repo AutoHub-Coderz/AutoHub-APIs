@@ -17,3 +17,17 @@ Router::group(['middleware' => \App\Middlewares\Auth::class], function () {
 Router::get('/info', function () {
     phpinfo();
 })->setName('info');
+
+
+Router::get('/mysql', function () {
+    $mysqli = new mysqli("localhost", "autoph_api", "wefS[rLyuB.{", "autoph_api");
+
+    // Check connection
+    if ($mysqli->connect_errno) {
+        echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+        exit();
+    } else {
+        echo "Connected to MySQL: " . $mysqli->connect_error;
+        exit();
+    }
+})->setName('info');
