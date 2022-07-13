@@ -37,7 +37,7 @@ class Database
 
     public static function connectDB()
     {
-        $conn = \mysql_connect(self::$host, self::$user, self::$password, self::$database);
+        $conn = \mysqli_connect(self::$host, self::$user, self::$password, self::$database);
         return $conn;
     }
 
