@@ -22,7 +22,7 @@ Router::get('/info', function () {
 Router::get('/mysql', function () {
 
     if (input('driver') == 'pdo') {
-        $mysqli = new mysqli("localhost", "autoph_api", "wefS[rLyuB.{", "autoph_api");
+        $mysqli = new MySQLi("localhost", "autoph_api", "wefS[rLyuB.{", "autoph_api");
 
         // Check connection
         if ($mysqli->connect_errno) {
