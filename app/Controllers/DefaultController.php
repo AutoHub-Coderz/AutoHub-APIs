@@ -12,4 +12,9 @@ class DefaultController
 	{
 		View::render('dashboard', get_defined_vars());
 	}
+
+	public function notFound(): string
+	{
+		return 'Page not found';
+	}
 }
