@@ -6,7 +6,10 @@ use App\Router;
 Router::group(['prefix' => '/v1'], function () {
     Router::group(['prefix' => '/sms'], function () {
         Router::group(['middleware' => \App\Middlewares\ApiVerification::class], function () {
-            Router::match(['get', 'post'], '/', function () {
+            Router::match(['get', 'post'], '/{sms}', function ($sms) {
+                // echo $sms;
+                // exit;
+
                 if (empty(input('mobile'))) {
                     response()->json(array("status" => 0, "message" => "mobile parameter is required."));
                 }
@@ -22,7 +25,7 @@ Router::group(['prefix' => '/v1'], function () {
                 $message = \App\Utilities\Utility::removeExtraSpaces($message);
 
                 // echo $message;
-                $sms_config = (object) config('sms')->{config('sms')->driver};
+                $sms_config = (object) config('sms')->{$sms};
 
                 $replace_parameter = array(
                     '{mobile}' => input('mobile'),
@@ -30,22 +33,15 @@ Router::group(['prefix' => '/v1'], function () {
                 );
 
                 $payload = is_array($sms_config->payload) ? json_encode($sms_config->payload) : $sms_config->payload;
-                $final_template = strtr($payload, $replace_parameter);
-                $final_template =  is_array($sms_config->payload) ?  json_decode($final_template, true) : $final_template;
+                $parameters = strtr($payload, $replace_parameter);
+                $parameters =  is_array($sms_config->payload) ?  json_decode($parameters, true) : $parameters;
 
-                // print_r($final_template);
-                // exit;
+                $array_data['uri'] = $sms_config->uri;
+                $array_data['parameters'] = $parameters;
+                $array_data['header'] = $sms_config->http_header;
 
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, $sms_config->uri);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_POST, 1);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $final_template);
-                if (count($sms_config->http_header) > 0) {
-                    curl_setopt($ch, CURLOPT_HTTPHEADER, $sms_config->http_header);
-                }
+                $result = \App\Utilities\Utility::curl($array_data);
 
-                $result = curl_exec($ch);
                 response()->json(array("response" => $result));
             })->setName('sms');
         });

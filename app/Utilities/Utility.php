@@ -105,4 +105,18 @@ class Utility
         return preg_replace('/\s+/', ' ', $string); // removing new line
         // return  preg_replace('/\h+/', ' ', $string);
     }
+
+    public static function curl($array_data)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $array_data['uri']);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $array_data['parameters']);
+        if (count($array_data['header']) > 0) {
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $array_data['header']);
+        }
+
+        return curl_exec($ch);
+    }
 }
