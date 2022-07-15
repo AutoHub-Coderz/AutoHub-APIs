@@ -97,17 +97,8 @@ class Utility
         return $_SERVER['HTTP_USER_AGENT'];
     }
 
-    public static function removeNonAscii($string)
-    {
-        return  preg_replace('/[\x00-\x1F\x7F\xA0]/u', '', $string);
-        // return preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $string);
-    }
 
-    public static function removeExtraSpaces($string)
-    {
-        return preg_replace('/\s+/', ' ', $string); // removing new line
-        // return  preg_replace('/\h+/', ' ', $string);
-    }
+
 
     public static function curl($array_data)
     {
@@ -124,5 +115,36 @@ class Utility
         }
 
         return curl_exec($ch);
+    }
+
+    public static function cleanString($data)
+    {
+        if (is_array($data)) {
+            foreach ($data as $key => $value) {
+                if (is_array($value)) {
+                    $data[$key]  =  self::cleanString($value);
+                } else {
+                    $data[$key] = self::removeNonAscii(self::removeExtraSpace(trim($data[$key])));
+                }
+            }
+            return $data;
+        } else {
+            return  self::removeNonAscii(self::removeExtraSpace(trim($data)));
+        }
+    }
+
+
+    public static function removeNonAscii($string)
+    {
+        return preg_replace('/[^\r\n[:print:]]/', '', $string);
+        // return  preg_replace('/[\x00-\x1F\x7F\xA0]/u', '', $string); bedt
+        // return preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $string);
+    }
+
+    public static function removeExtraSpace($data)
+    {
+        // return  preg_replace('/\s+/', ' ', $data);
+        return preg_replace('/\h+/', ' ', $data);
+        // return preg_replace('/\x20+/', ' ', $data);
     }
 }
