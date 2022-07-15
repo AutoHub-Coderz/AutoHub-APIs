@@ -91,6 +91,9 @@ class Utility
 
     public static function clientUserAgent()
     {
+        if (empty($_SERVER['HTTP_USER_AGENT'])) {
+            return null;
+        }
         return $_SERVER['HTTP_USER_AGENT'];
     }
 
@@ -108,12 +111,15 @@ class Utility
 
     public static function curl($array_data)
     {
+        if (empty($array_data['uri'])) {
+            return "No uri";
+        }
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $array_data['uri']);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $array_data['parameters']);
-        if (count($array_data['header']) > 0) {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, empty($array_data['parameters']) ? null : $array_data['parameters']);
+        if (!empty($array_data['header']) > 0) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, $array_data['header']);
         }
 

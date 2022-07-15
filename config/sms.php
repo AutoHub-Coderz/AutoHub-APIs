@@ -17,7 +17,7 @@ return [
         'payload' => '{
             "apiKey" : "aenda-5XRDT",
             "apiPass" : "3[#kQ.Rx~E",
-            "mask" : "AUTOHUB GRP",
+            "mask" : "101010GOLF",
             "content" : "{message}",
             "msisdn" : "{mobile}"
         }',
