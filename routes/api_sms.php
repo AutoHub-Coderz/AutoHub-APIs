@@ -25,8 +25,9 @@ Router::group(['prefix' => '/v1'], function () {
                 // $message = \App\Utilities\Utility::removeExtraSpace($message);
 
                 $message = \App\Utilities\Utility::cleanString(input('message'));
+                $message = strtr(input('message'), array("\n" => "\\n"));
 
-                // echo $message;
+
                 $sms_config = (object) config('sms')->{$sms};
 
                 $replace_parameter = array(
