@@ -22,11 +22,10 @@ Router::group(['prefix' => '/v1'], function () {
                 // //remove non ascii
                 // $message = \App\Utilities\Utility::removeNonAscii($message);
                 // //remove extra space
-                // $message = \App\Utilities\Utility::removeExtraSpace($message);
-
+                // $message = \App\Utilities\Utility::removeExtraSpace($message); 
+                // $message = strtr(input('message'), array("\n" => "\\n"));
                 $message = \App\Utilities\Utility::cleanString(input('message'));
-                $message = strtr(input('message'), array("\n" => "\\n"));
-
+                $message = strtr(input('message'), array("\n" => "\\n",  "\r" => ""));
 
                 $sms_config = (object) config('sms')->{$sms};
 
@@ -38,6 +37,7 @@ Router::group(['prefix' => '/v1'], function () {
                 $payload = is_array($sms_config->payload) ? json_encode($sms_config->payload) : $sms_config->payload;
                 $parameters = strtr($payload, $replace_parameter);
                 $parameters =  is_array($sms_config->payload) ?  json_decode($parameters, true) : $parameters;
+
 
                 $array_data['uri'] = $sms_config->uri;
                 $array_data['parameters'] = $parameters;
