@@ -33,7 +33,7 @@ return [
             "success" => "201",
         ],
     ],
-    'itextmo' => [
+    'itexmo' => [
         'uri' => 'https://www.itexmo.com/php_api/api.php',
         'payload' => [
             "1" => "{mobile}",
