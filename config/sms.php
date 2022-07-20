@@ -34,9 +34,15 @@ return [
         ],
     ],
     'itextmo' => [
-        'uri' => '',
-        'payload' => [],
-        'http_header' => [],
+        'uri' => 'https://www.itexmo.com/php_api/api.php',
+        'payload' => [
+            "1" => "{mobile}",
+            "2" => "{message}",
+            "3" => "PR-AUTOH172111_IE74I",
+            "passwd" => "me}vfe3j#c",
+            "5" => "HIGH",
+        ],
+        'http_header' => ["Content-Type: application/x-www-form-urlencoded"],
         'response' => [
             "type" => "text",
             "key" => "",

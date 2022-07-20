@@ -36,8 +36,7 @@ Router::group(['prefix' => '/v1'], function () {
 
                 $payload = is_array($sms_config->payload) ? json_encode($sms_config->payload) : $sms_config->payload;
                 $parameters = strtr($payload, $replace_parameter);
-                $parameters =  is_array($sms_config->payload) ?  json_decode($parameters, true) : $parameters;
-
+                $parameters =  is_array($sms_config->payload) ?  http_build_query(json_decode($parameters, true)) : $parameters;
 
                 $array_data['uri'] = $sms_config->uri;
                 $array_data['parameters'] = $parameters;
