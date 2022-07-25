@@ -105,7 +105,7 @@ class Utility
         if (empty($array_data['uri'])) {
             return "No uri";
         }
-        $ch = curl_init();
+        $ch = \curl_init();
         curl_setopt($ch, CURLOPT_URL, $array_data['uri']);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, 1);
