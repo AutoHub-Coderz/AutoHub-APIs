@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '471ca27e3f77abb3c1c62b44f556cb9be11fccb1',
+        'reference' => '32a265d3aece6b6b490c7eb9ff4a63e187f112d7',
         'name' => 'clrkz/php-mvc-bootstrap',
         'dev' => true,
     ),
@@ -34,7 +34,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '471ca27e3f77abb3c1c62b44f556cb9be11fccb1',
+            'reference' => '32a265d3aece6b6b490c7eb9ff4a63e187f112d7',
             'dev_requirement' => false,
         ),
         'dasprid/enum' => array(
@@ -93,6 +93,17 @@
             'install_path' => __DIR__ . '/../gumlet/php-image-resize',
             'aliases' => array(),
             'reference' => 'aee4e2573e83476ffd0ac64b7269f838c8cd9d68',
+            'dev_requirement' => false,
+        ),
+        'halaxa/json-machine' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../halaxa/json-machine',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => 'b4086dfe72670df060d2bd481f01bc9e450a5640',
             'dev_requirement' => false,
         ),
         'pecee/simple-router' => array(

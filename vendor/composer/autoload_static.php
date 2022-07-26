@@ -37,6 +37,10 @@ class ComposerStaticInitbfa089c79f1d3f07e9400b7b0d4f9bb4
             'Pecee\\' => 6,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
+        'J' => 
+        array (
+            'JsonMachine\\' => 12,
+        ),
         'G' => 
         array (
             'Gumlet\\' => 7,
@@ -111,6 +115,10 @@ class ComposerStaticInitbfa089c79f1d3f07e9400b7b0d4f9bb4
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+        'JsonMachine\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/halaxa/json-machine/src',
         ),
         'Gumlet\\' => 
         array (

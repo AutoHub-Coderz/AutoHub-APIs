@@ -1,6 +1,6 @@
 {
-  "name": "clrkz/php-mvc-bootstrap",
-  "description": "PHP-MVC-Bootstrap",
+  "name": "clrkz/autohub-apis",
+  "description": "AutoHub Centralized APIs (prevent repeated creation of same module like sms,email and other services)",
   "autoload": {
     "psr-4": {
       "App\\": "app/"
@@ -25,7 +25,8 @@
     "fakerphp/faker": "2.x-dev",
     "vlucas/phpdotenv": "5.4.x-dev",
     "endroid/qr-code": "4.x-dev",
-    "symfony/polyfill-iconv": "1.26.x-dev"
+    "symfony/polyfill-iconv": "1.26.x-dev",
+    "halaxa/json-machine": "dev-master"
   },
   "config": {
     "platform-check": false
