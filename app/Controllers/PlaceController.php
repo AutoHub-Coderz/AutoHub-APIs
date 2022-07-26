@@ -105,8 +105,13 @@ class PlaceController extends Controller
                 }
             }
         } else {
-            header('Content-Type: application/json');
-            Resource::render('json/place/countries+states+cities.json');
+            $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
+            $country_arr = array();
+            foreach ($countries as $key => $value) {
+                unset($value['states']);
+                $country_arr = array_merge($country_arr, array($value));
+            }
+            response()->json($country_arr);
         }
     }
 }
