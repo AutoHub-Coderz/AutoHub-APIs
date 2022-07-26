@@ -48,8 +48,10 @@ class PlaceController extends Controller
         // }
         // exit;
 
+
+        $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
         if (!empty(input('country')) && !empty(input('state')) && !empty(input('city'))) {
-            $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
+            // $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
             foreach ($countries as $name => $data) {
                 $country_key = null;
                 if (is_numeric(input('country'))) {
@@ -73,7 +75,7 @@ class PlaceController extends Controller
                 }
             }
         } else if (!empty(input('country')) && !empty(input('state'))) {
-            $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
+            // $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
             foreach ($countries as $name => $data) {
                 $country_key = null;
                 if (is_numeric(input('country'))) {
@@ -90,7 +92,7 @@ class PlaceController extends Controller
                 }
             }
         } else if (!empty(input('country'))) {
-            $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
+            // $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
             foreach ($countries as $name => $data) {
                 $country_key = null;
                 if (is_numeric(input('country'))) {
@@ -105,7 +107,7 @@ class PlaceController extends Controller
                 }
             }
         } else {
-            $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
+            // $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
             $country_arr = array();
             foreach ($countries as $key => $value) {
                 unset($value['states']);
