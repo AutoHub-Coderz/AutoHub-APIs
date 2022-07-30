@@ -52,6 +52,7 @@ class PlaceController extends Controller
         $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
         if (!empty(input('country')) && !empty(input('state')) && !empty(input('city'))) {
             // $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
+            $result = array();
             foreach ($countries as $name => $data) {
                 $country_key = null;
                 if (is_numeric(input('country'))) {
@@ -69,13 +70,22 @@ class PlaceController extends Controller
                             $state_key = 'state_code';
                         }
                         if ($stateV[$state_key] == input('state')) {
-                            response()->json($stateV['cities']);
+                            // response()->json($stateV['cities']);
+                            $result = $stateV['cities'];
+                            break;
                         }
                     }
                 }
             }
+            if (count($result)) {
+                $result['status'] = 1;
+                response()->json($result);
+            } else {
+                response()->json(array("status" => 0, "message" => "Country or state not found."));
+            }
         } else if (!empty(input('country')) && !empty(input('state'))) {
             // $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
+            $result = array();
             foreach ($countries as $name => $data) {
                 $country_key = null;
                 if (is_numeric(input('country'))) {
@@ -88,11 +98,20 @@ class PlaceController extends Controller
                     foreach ($data['states'] as $stateK => $stateV) {
                         unset($data['states'][$stateK]['cities']);
                     }
-                    response()->json($data['states']);
+                    $result = $data;
+                    break;
+                    // response()->json($data['states']);
                 }
+            }
+            if (count($result)) {
+                $result['status'] = 1;
+                response()->json($result);
+            } else {
+                response()->json(array("status" => 0, "message" => "Country not found."));
             }
         } else if (!empty(input('country'))) {
             // $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
+            $result = array();
             foreach ($countries as $name => $data) {
                 $country_key = null;
                 if (is_numeric(input('country'))) {
@@ -103,8 +122,15 @@ class PlaceController extends Controller
                 if ($data[$country_key] == input('country')) {
                     // $data = array_diff_key($data, array_flip(["states"]));
                     unset($data['states']);
-                    response()->json($data);
+                    $result = $data;
+                    break;
                 }
+            }
+            if (count($result)) {
+                $result['status'] = 1;
+                response()->json($result);
+            } else {
+                response()->json(array("status" => 0, "message" => "Country not found."));
             }
         } else {
             // $countries = Items::fromFile('../resources/json/place/countries+states+cities.json', ['decoder' => new ExtJsonDecoder(true)]);
