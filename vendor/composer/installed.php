@@ -5,8 +5,8 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '32a265d3aece6b6b490c7eb9ff4a63e187f112d7',
-        'name' => 'clrkz/php-mvc-bootstrap',
+        'reference' => 'f9f0842fb163dc218e5cea48b4e047a94829fa8d',
+        'name' => 'clrkz/autohub-apis',
         'dev' => true,
     ),
     'versions' => array(
@@ -28,13 +28,13 @@
             'reference' => 'ca57d18f028f84f777b2168cd1911b0dee2343ae',
             'dev_requirement' => false,
         ),
-        'clrkz/php-mvc-bootstrap' => array(
+        'clrkz/autohub-apis' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '32a265d3aece6b6b490c7eb9ff4a63e187f112d7',
+            'reference' => 'f9f0842fb163dc218e5cea48b4e047a94829fa8d',
             'dev_requirement' => false,
         ),
         'dasprid/enum' => array(
@@ -74,16 +74,16 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => 'd28e6df83830252650da4623c78aaaf98fb385f3',
+            'reference' => '018dfc4e1da92ad8a1b90adc4893f476a3b41cb8',
             'dev_requirement' => false,
         ),
         'graham-campbell/result-type' => array(
-            'pretty_version' => '1.0.x-dev',
-            'version' => '1.0.9999999.9999999-dev',
+            'pretty_version' => '1.1.x-dev',
+            'version' => '1.1.9999999.9999999-dev',
             'type' => 'library',
             'install_path' => __DIR__ . '/../graham-campbell/result-type',
             'aliases' => array(),
-            'reference' => '2c41119c817eaf5bf08d362005b980dc45999b5b',
+            'reference' => 'a878d45c1914464426dc94da61c9e1d36ae262a8',
             'dev_requirement' => false,
         ),
         'gumlet/php-image-resize' => array(
@@ -130,9 +130,20 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpoption/phpoption',
             'aliases' => array(
-                0 => '1.8.x-dev',
+                0 => '1.9.x-dev',
             ),
-            'reference' => '39bb9365314853cab68ac1c6e1952cad03f74cbc',
+            'reference' => 'dc5ff11e274a90cc1c743f66c9ad700ce50db9ab',
+            'dev_requirement' => false,
+        ),
+        'picqer/php-barcode-generator' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../picqer/php-barcode-generator',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => 'b98f110cc5a79f723688fb17fd90b9325300d844',
             'dev_requirement' => false,
         ),
         'psr/container' => array(
@@ -143,7 +154,7 @@
             'aliases' => array(
                 0 => '2.0.x-dev',
             ),
-            'reference' => 'c71ecc56dfe541dbd90c5360474fbc405f8d5963',
+            'reference' => '90db7b9ac2a2c5b849fcb69dde58f3ae182c68f5',
             'dev_requirement' => false,
         ),
         'ramsey/collection' => array(

@@ -26,7 +26,8 @@
     "vlucas/phpdotenv": "5.4.x-dev",
     "endroid/qr-code": "4.x-dev",
     "symfony/polyfill-iconv": "1.26.x-dev",
-    "halaxa/json-machine": "dev-master"
+    "halaxa/json-machine": "dev-master",
+    "picqer/php-barcode-generator": "dev-main"
   },
   "config": {
     "platform-check": false
