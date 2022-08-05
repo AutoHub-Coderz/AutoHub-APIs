@@ -14,8 +14,6 @@ Router::group(['prefix' => '/v1'], function () {
             $response['parameters'] = array(
                 'key' => array('required' => true, 'value' => 'string'),
                 'data' => array('required' => true, 'value' => 'string'),
-                'label' => array('required' => false, 'value' => 'string'),
-                'logo' => array('required' => false, 'value' => 'boolean'),
                 'filename' => array('required' => false, 'value' => 'string'),
             );
             response()->json($response);
