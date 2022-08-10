@@ -95,10 +95,11 @@ class PlaceController extends Controller
                 }
 
                 if ($data[$country_key] == input('country')) {
+
                     foreach ($data['states'] as $stateK => $stateV) {
                         unset($data['states'][$stateK]['cities']);
                     }
-                    $result = $data;
+                    $result = $data['states'];
                     break;
                     // response()->json($data['states']);
                 }
