@@ -117,6 +117,13 @@ class Utility
         return curl_exec($ch);
     }
 
+    public static function escapeString($string)
+    {
+        $strArr = array("data" => $string);
+        $jsonArr = json_encode($strArr);
+        return json_decode($jsonArr['data'], true);
+    }
+
     public static function cleanString($data)
     {
         if (is_array($data)) {
