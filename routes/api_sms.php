@@ -26,7 +26,7 @@ Router::group(['prefix' => '/v1'], function () {
                 // $message = strtr(input('message'), array("\n" => "\\n"));
 
                 $message = \App\Utilities\Utility::cleanString(input('message'));
-                $message = escape($message);
+                // $message = escape($message);
                 $message = addslashes($message);
                 $message = strtr($message, array("\n" => "\\n",  "\r" => ""));
 
