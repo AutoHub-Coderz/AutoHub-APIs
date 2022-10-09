@@ -190,4 +190,18 @@ class Database
         }
         return  $sql->affected_rows;
     }
+    // $mysqli->real_escape_string($city));
+    public static function escape($string)
+    {
+        return self::$conn->real_escape_string($string);
+        // $sql = self::$conn->real_escape_string("asd");
+        // if (self::$conn->error) {
+        //     return self::$conn->error;
+        // }
+        // $sql->real_escape_string("asd");
+        // if ($sql->errno) {
+        //     return $sql->error;
+        // }
+        // return  $sql->affected_rows;
+    }
 }
