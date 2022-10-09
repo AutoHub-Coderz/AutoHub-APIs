@@ -26,13 +26,13 @@ Router::group(['prefix' => '/v1'], function () {
                 // $message = strtr(input('message'), array("\n" => "\\n"));
 
                 $message = \App\Utilities\Utility::cleanString(input('message'));
-                // $message = addslashes($message);
-                $message = \App\Core\Database::escape($message);
+                $message = addslashes($message);
+                // $message = \App\Core\Database::escape($message);
 
-                // $message = strtr($message, array(
-                //     "\n" => "\\n",
-                //     "\r" => "",
-                // ));
+                $message = strtr($message, array(
+                    "\n" => "\\n",
+                    "\r" => "",
+                ));
 
 
 
