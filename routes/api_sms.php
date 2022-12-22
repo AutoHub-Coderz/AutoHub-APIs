@@ -25,7 +25,9 @@ Router::group(['prefix' => '/v1'], function () {
                 // $message = \App\Utilities\Utility::removeExtraSpace($message); 
                 // $message = strtr(input('message'), array("\n" => "\\n"));
 
-                $message = \App\Utilities\Utility::cleanString(input('message'));
+
+                $message = preg_replace("/&([a-z])[a-z]+;/i", "$1", htmlentities(input('message')));
+                $message = \App\Utilities\Utility::cleanString($message);
                 $message = addslashes($message);
                 // $message = \App\Core\Database::escape($message);
 
@@ -33,9 +35,6 @@ Router::group(['prefix' => '/v1'], function () {
                     "\n" => "\\n",
                     "\r" => "",
                 ));
-
-
-
 
                 $sms_config = (object) config('sms')->{$sms};
 

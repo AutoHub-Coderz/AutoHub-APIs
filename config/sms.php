@@ -12,9 +12,9 @@ return [
         }',
         'http_header' => ["Content-Type: application/json"],
         'response' => [
-            "type" => "json",
-            "key" => "status",
-            "success" => "201",
+            "type" => "json", // Response type: text/json
+            "key" => "status", // Key if json
+            "success" => "201", // Response of success
         ],
     ],
     'golf' => [
